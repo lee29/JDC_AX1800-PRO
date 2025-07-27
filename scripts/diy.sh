@@ -43,9 +43,13 @@ trap 'error_handler' ERR
 
 
 
-
-
-
+add_files() {
+    local files_dir="$OPENWRT_PATH/files"
+    local files_src="$GITHUB_WORKSPACE/files"
+    if [ -d "$files_dir" ]; then
+        cp -f "$files_src" "$files_dir"
+    fi
+}
 
 
 add_wifi_default_set() {
@@ -120,6 +124,7 @@ sed -ri \'/check_signature/s@^[^#]@#&@\' /etc/opkg.conf\n" $emortal_def_dir/file
 
 
 main() {
+    add_files() 
     add_wifi_default_set
     custom_settings
     fix_compile_vlmcsd
