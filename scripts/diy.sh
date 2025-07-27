@@ -124,7 +124,7 @@ sed -ri \'/check_signature/s@^[^#]@#&@\' /etc/opkg.conf\n" $emortal_def_dir/file
 
 
 main() {
-    add_files() 
+    add_files
     add_wifi_default_set
     custom_settings
     fix_compile_vlmcsd
