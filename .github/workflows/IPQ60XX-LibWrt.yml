@@ -135,8 +135,6 @@ jobs:
         $GITHUB_WORKSPACE/scripts/diy.sh
         cd $OPENWRT_PATH
         $GITHUB_WORKSPACE/$DIY_SCRIPT2
-        cd $OPENWRT_PATH
-        [ -e files ] && cp files $OPENWRT_PATH/files
 
         
     - name: SSH远程连接服务器
