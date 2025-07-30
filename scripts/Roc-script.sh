@@ -2,11 +2,14 @@
 
 #修改默认主题
 sed -i "s/luci-theme-bootstrap/luci-theme-argon/g" $(find ./feeds/luci/collections/ -type f -name "Makefile")
+# 修改默认密码password
+sed -i 's/root:.*/root:$5$sTDoVxujyj8AUGwn$fzTRJUpQWecgcJUs6sGc.yKDgdo/qQfYJc8tBZHBAf7:20299:0:99999:7:::/g' package/base-files/files/etc/shadow
 # 修改默认IP & 固件名称 & 编译署名 &#添加编译日期标识
 #sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 sed -i "s/hostname='.*'/hostname='JDC'/g" package/base-files/files/bin/config_generate
 sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ Built by lee29')/g" feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
-
+# 修改本地时间格式
+#sed -i 's/os.date()/os.date("%a %Y-%m-%d %H:%M:%S")/g' package/lean/autocore/files/*/index.htm
 
 # 调整NSS驱动q6_region内存区域预留大小（ipq6018.dtsi默认预留85MB，ipq6018-512m.dtsi默认预留55MB，以下分别是改成预留16MB、32MB、64MB和96MB）
 # sed -i 's/reg = <0x0 0x4ab00000 0x0 0x[0-9a-f]\+>/reg = <0x0 0x4ab00000 0x0 0x01000000>/' target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6018-512m.dtsi
@@ -29,8 +32,17 @@ sed -i 's/services/nas/g' feeds/luci/applications/luci-app-openlist/root/usr/sha
 # sed -i 's/services/control/g' feeds/luci/applications/luci-app-eqos/root/usr/share/luci/menu.d/luci-app-eqos.json
 # sed -i 's/services/control/g' feeds/luci/applications/luci-app-wol/root/usr/share/luci/menu.d/luci-app-wol.json
 # sed -i 's/services/control/g' feeds/luci/applications/luci-app-wifischedule/root/usr/share/luci/menu.d/luci-app-wifischedule.json
-# 修复 armv8 平台 xfsprogs 报错
-#sed -i 's/TARGET_CFLAGS.*/TARGET_CFLAGS += -DHAVE_MAP_SYNC -D_LARGEFILE64_SOURCE/g' feeds/packages/utils/xfsprogs/Makefile
+# 更改默认 Shell 为 zsh
+# sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
+
+# TTYD 免登录
+# sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
+
+
+
+
+
+
 
 
 # 修正使用ccache编译vlmcsd的问题
@@ -75,6 +87,14 @@ chmod +x package/luci-app-athena-led/root/etc/init.d/athena_led package/luci-app
 # OpenClash（ dev 版 ）
 rm -rf feeds/luci/applications/luci-app-openclash
 git clone --depth=1 -b dev https://github.com/vernesong/OpenClash.git package/luci-app-openclash
+
+# iStore
+#git_sparse_clone main https://github.com/linkease/istore-ui app-store-ui
+#git_sparse_clone main https://github.com/linkease/istore luci
+
+
+
+
 
 
 ./scripts/feeds update -a
