@@ -137,10 +137,10 @@ jobs:
         cd $OPENWRT_PATH
         $GITHUB_WORKSPACE/$DIY_SCRIPT2
 
-    - name: 加载自定义配置Load custom configuration
+    - name: 加载自定义文件Load custom config
       run: |
-        [ -e $FILES ] && mv $FILES $OPENWRT_PATH/files      
-        
+        [ -e $FILES ] && cp -R $FILES $OPENWRT_PATH/files      
+       
     - name: SSH远程连接服务器
       uses: mxschmitt/action-tmate@v3
       if: env.SSH_ACTIONS == 'true' || (github.event.inputs.SSH_ACTION == 'true')
