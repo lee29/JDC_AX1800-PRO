@@ -19,7 +19,7 @@
   "meilisearch": {
     "host": "http://localhost:7700",
     "api_key": "",
-    "index_prefix": ""
+    "index": "openlist"
   },
   "scheme": {
     "address": "0.0.0.0",
@@ -43,13 +43,24 @@
     "max_age": 28,
     "compress": false,
     "filter": {
-      "enable_filtering": true,
-      "filter_health_checks": true,
-      "filter_webdav": true,
-      "filter_head_requests": true,
-      "custom_skip_paths": [],
-      "custom_skip_methods": [],
-      "custom_skip_prefixes": []
+      "enable": false,
+      "filters": [
+        {
+          "cidr": "",
+          "path": "/ping",
+          "method": ""
+        },
+        {
+          "cidr": "",
+          "path": "",
+          "method": "HEAD"
+        },
+        {
+          "cidr": "",
+          "path": "/dav/",
+          "method": "PROPFIND"
+        }
+      ]
     }
   },
   "delayed_start": 0,
@@ -126,5 +137,5 @@
     "enable": false,
     "listen": ":5222"
   },
-  "last_launched_version": "v4.0.9 (OpenWrt aarch64_cortex-a53)"
+  "last_launched_version": "v4.1.0 (OpenWrt aarch64_cortex-a53)"
 }
