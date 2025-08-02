@@ -31,17 +31,6 @@ custom_settings() {
 }
 
 
-fix_compile_vlmcsd() {
-    local dir="$OPENWRT_PATH/feeds/packages/net/vlmcsd"
-    local patch_src="$GITHUB_WORKSPACE/patches/fix_vlmcsd_compile_with_ccache.patch"
-    local patch_dest="$dir/patches"
-
-    if [ -d "$dir" ]; then
-        mkdir -p "$patch_dest"
-        cp -f "$patch_src" "$patch_dest"
-    fi
-}
-
 
 
 fix_build_for_openssl() {
@@ -93,7 +82,6 @@ sed -ri \'/check_signature/s@^[^#]@#&@\' /etc/opkg.conf\n" $emortal_def_dir/file
 main() {
     add_wifi_default_set
     custom_settings
-    fix_compile_vlmcsd
     fix_build_for_openssl
     fix_mk_def_depends
     install_opkg_distfeeds
