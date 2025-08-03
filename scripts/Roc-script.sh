@@ -74,6 +74,11 @@ git clone --depth=1 -b dev https://github.com/vernesong/OpenClash.git package/lu
 #git_sparse_clone main https://github.com/linkease/istore-ui app-store-ui
 #git_sparse_clone main https://github.com/linkease/istore luci
 
+
+
+./scripts/feeds update -a
+./scripts/feeds install -a
+
 # 调整插件显示位置
 # sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
 sed -i 's/services/nas/g' feeds/luci/applications/luci-app-openlist2/root/usr/share/luci/menu.d/luci-app-openlist2.json
