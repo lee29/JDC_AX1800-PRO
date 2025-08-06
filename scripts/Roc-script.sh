@@ -57,7 +57,8 @@ git clone --depth=1 https://github.com/lee29/xunlei-package package/xunlei
 
 
 # OpenList & AdGuardHome & WolPlus & Lucky & OpenAppFilter & 集客无线AC控制器 & 雅典娜LED控制
-git clone --depth=1 https://github.com/sbwml/luci-app-openlist2 package/openlist
+#git clone --depth=1 https://github.com/sbwml/luci-app-openlist2 package/openlist
+git clone --depth=1 https://github.com/sbwml/luci-app-openlist2 $OPENWRT_PATH/feeds/luci/applications/luci-app-openlist2
 #git_sparse_clone master https://github.com/kenzok8/openwrt-packages adguardhome luci-app-adguardhome
 git_sparse_clone main https://github.com/VIKINGYFY/packages luci-app-wolplus
 #git clone --depth=1 https://github.com/gdy666/luci-app-lucky package/luci-app-lucky
