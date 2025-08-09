@@ -79,6 +79,13 @@ chmod +x package/luci-app-athena-led/root/etc/init.d/athena_led package/luci-app
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 
+
+mkdir -p files/etc/openclash/core
+CLASH_META_URL="https://raw.githubusercontent.com/vernesong/OpenClash/core/master/meta/clash-linux-arm64.tar.gz"
+wget -qO- $CLASH_META_URL | tar xOvz > files/etc/openclash/core/clash_meta
+chmod +x files/etc/openclash/core/clash*
+
+
 # 调整插件显示位置
 # sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
 sed -i 's/services/nas/g' feeds/luci/applications/luci-app-openlist2/root/usr/share/luci/menu.d/luci-app-openlist2.json
