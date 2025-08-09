@@ -98,6 +98,15 @@ wget -qO- $MODEL_URL > files/etc/openclash/model.bin
 chmod +x files/etc/openclash/core/clash*
 
 
+
+
+#内置订阅转换后端服务
+#【https://github.com/Aethersailor/Custom_OpenClash_Rules/wiki/%E4%B8%80%E4%BA%9B%E9%9B%B6%E7%A2%8E%E7%9A%84%E6%95%99%E7%A8%8B#11-immortalwrt-%E4%B8%8B%E6%90%AD%E5%BB%BA%E8%AE%A2%E9%98%85%E8%BD%AC%E6%8D%A2%E5%90%8E%E7%AB%AF%E6%9C%8D%E5%8A%A1】
+mkdir -p files/etc/subconverter/config
+SMART_INI_URL="https://raw.githubusercontent.com/Aethersailor/Custom_OpenClash_Rules/main/cfg/Custom_Clash_Smart.ini"
+wget -qO- $SMART_INI_URL > files/etc/subconverter/config/Smart.ini
+chmod +x files/etc/subconverter/config/Smart.ini
+
 # 调整插件显示位置
 # sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
 sed -i 's/services/nas/g' package/openlist/luci-app-openlist2/root/usr/share/luci/menu.d/luci-app-openlist2.json
