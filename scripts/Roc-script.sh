@@ -28,7 +28,7 @@ sed -i 's/invalid users = root/#&/g' feeds/packages/net/samba4/files/smb.conf.te
 # sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
 
 # TTYD 免登录
-sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
+#sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
 
 
 
@@ -57,8 +57,7 @@ git clone --depth=1 https://github.com/lee29/xunlei-package package/xunlei
 
 
 # OpenList & AdGuardHome & WolPlus & Lucky & OpenAppFilter & 集客无线AC控制器 & 雅典娜LED控制
-#git clone --depth=1 https://github.com/sbwml/luci-app-openlist2 package/openlist
-git clone --depth=1 https://github.com/sbwml/luci-app-openlist2 $OPENWRT_PATH/feeds/luci/applications/luci-app-openlist2
+git clone --depth=1 https://github.com/sbwml/luci-app-openlist2 package/openlist
 #git_sparse_clone master https://github.com/kenzok8/openwrt-packages adguardhome luci-app-adguardhome
 git_sparse_clone main https://github.com/VIKINGYFY/packages luci-app-wolplus
 #git clone --depth=1 https://github.com/gdy666/luci-app-lucky package/luci-app-lucky
@@ -82,7 +81,7 @@ chmod +x package/luci-app-athena-led/root/etc/init.d/athena_led package/luci-app
 
 # 调整插件显示位置
 # sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
-sed -i 's/services/nas/g' $OPENWRT_PATH/feeds/luci/applications/luci-app-openlist2/root/usr/share/luci/menu.d/luci-app-openlist2.json
+sed -i 's/services/nas/g' feeds/luci/applications/luci-app-openlist2/root/usr/share/luci/menu.d/luci-app-openlist2.json
 # sed -i 's/services/nas/g' feeds/luci/applications/luci-app-samba4/root/usr/share/luci/menu.d/luci-app-samba4.json
 # sed -i 's/services/nas/g' feeds/luci/applications/luci-app-hd-idle/root/usr/share/luci/menu.d/luci-app-hd-idle.json
 # sed -i 's/services/nas/g' feeds/luci/applications/luci-app-minidlna/root/usr/share/luci/menu.d/luci-app-minidlna.json
