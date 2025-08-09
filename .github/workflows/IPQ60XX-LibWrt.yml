@@ -145,6 +145,8 @@ jobs:
     - name: SSH远程连接服务器
       uses: mxschmitt/action-tmate@v3.22
       if: env.SSH_ACTIONS == 'true' || (github.event.inputs.SSH_ACTION == 'true')
+      with:
+        limit-access-to-actor: false
       # timeout-minutes: 15
 
       
