@@ -52,7 +52,7 @@ function git_sparse_clone() {
 }
 
 
-
+#添加迅雷下载
 git clone --depth=1 https://github.com/lee29/xunlei-package package/xunlei
 
 
