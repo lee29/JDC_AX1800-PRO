@@ -143,8 +143,8 @@ jobs:
         chmod -R 755 $OPENWRT_PATH/files 
        
     - name: SSH远程连接服务器
-      #uses: mxschmitt/action-tmate@v3.22
-      uses: redmi-mt6765-dev/tmate_ssh_actions@dev
+      uses: mxschmitt/action-tmate@v3.22
+      #uses: redmi-mt6765-dev/tmate_ssh_actions@dev
       if: env.SSH_ACTIONS == 'true' || (github.event.inputs.SSH_ACTION == 'true')
       #with:
       #  limit-access-to-actor: false
