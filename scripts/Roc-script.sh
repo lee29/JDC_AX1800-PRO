@@ -89,6 +89,8 @@ chmod +x files/etc/openclash/core/clash*
 # 调整插件显示位置
 # sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
 sed -i 's/services/nas/g' feeds/luci/applications/luci-app-openlist2/root/usr/share/luci/menu.d/luci-app-openlist2.json
+sed -i 's/services/nas/g' package/luci-app-openlist2/root/usr/share/luci/menu.d/luci-app-openlist2.json
+sed -i 's/services/nas/g' package/openlist/luci-app-openlist2/root/usr/share/luci/menu.d/luci-app-openlist2.json
 # sed -i 's/services/nas/g' feeds/luci/applications/luci-app-samba4/root/usr/share/luci/menu.d/luci-app-samba4.json
 # sed -i 's/services/nas/g' feeds/luci/applications/luci-app-hd-idle/root/usr/share/luci/menu.d/luci-app-hd-idle.json
 # sed -i 's/services/nas/g' feeds/luci/applications/luci-app-minidlna/root/usr/share/luci/menu.d/luci-app-minidlna.json
