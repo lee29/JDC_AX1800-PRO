@@ -20,7 +20,6 @@ env:
   GENERAL_CONFIG_FILE: configs/General.config
   DIY_SCRIPT: scripts/diy.sh
   DIY_SCRIPT2: scripts/Roc-script.sh
-  FILES: files
   CLASH_KERNEL: amd64
   MADS: false
   UPLOAD_BIN_DIR: false
@@ -140,7 +139,8 @@ jobs:
 
     - name: 加载自定义文件Load custom config
       run: |
-        [ -e $FILES ] && cp -R $FILES $OPENWRT_PATH/files 
+        df -hT $GITHUB_WORKSPACE
+        [ -e $GITHUB_WORKSPACE/files ] && cp -Rf $GITHUB_WORKSPACE/files $OPENWRT_PATH/files 
        
     - name: SSH远程连接服务器
       uses: mxschmitt/action-tmate@v3.22
