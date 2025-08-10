@@ -140,7 +140,7 @@ jobs:
     - name: 加载自定义文件Load custom config
       run: |
         df -hT $GITHUB_WORKSPACE
-        [ -e $GITHUB_WORKSPACE/files ] && cp -Rf $GITHUB_WORKSPACE/files $OPENWRT_PATH/files 
+        [ -e $GITHUB_WORKSPACE/files ] && cp -Rf $GITHUB_WORKSPACE/files $OPENWRT_PATH
        
     - name: SSH远程连接服务器
       uses: mxschmitt/action-tmate@v3.22
