@@ -33,3 +33,6 @@ https://post.smzdm.com/p/a7p2ddel/
 
 ##files大法参考
 [files大法参考](https://github.com/rmoyulong/Lite_OpenWrt/blob/513d683b37ef5a62c9273897f85296c339234ecd/Scripts/universal_init.sh).
+
+##优秀脚本sh参考
+[优秀脚本sh参考](https://github.com/rmoyulong/Lite_OpenWrt).
