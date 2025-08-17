@@ -1,4 +1,4 @@
-name: IPQ60XX-LibWrt
+name: IPQ60XX-VIKINGYFY
 
 on:
   workflow_dispatch:
