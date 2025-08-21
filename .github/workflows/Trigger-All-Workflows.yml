@@ -13,8 +13,8 @@ jobs:
     IPQ60XX-VIKINGYFY:
       uses: ./.github/workflows/IPQ60XX-VIKINGYFY.yml
 
-    IPQ60XX-qosmio:
-      uses: ./.github/workflows/IPQ60XX-qosmio.yml
+#    IPQ60XX-qosmio:
+#      uses: ./.github/workflows/IPQ60XX-qosmio.yml
 
     All-Clean:
       uses: ./.github/workflows/All-Clean.yml
