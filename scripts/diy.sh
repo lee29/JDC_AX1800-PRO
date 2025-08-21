@@ -82,8 +82,8 @@ sed -ri \'/check_signature/s@^[^#]@#&@\' /etc/opkg.conf\n" $emortal_def_dir/file
 main() {
     add_wifi_default_set
     custom_settings
-    fix_build_for_openssl
-    fix_mk_def_depends
+    #fix_build_for_openssl
+    #fix_mk_def_depends
     install_opkg_distfeeds
 }
 
