@@ -2,13 +2,27 @@
 
 #修改默认主题
 sed -i "s/luci-theme-bootstrap/luci-theme-argon/g" $(find ./feeds/luci/collections/ -type f -name "Makefile")
+
+
+# 设置root密码为Tian1234567
+# 密码加密算法，其实就是用明文密码和一个叫salt的东西通过函数crypt()完成加密。
+# 密码域密文也是由三部分组成的，即：$id$salt$encrypted。
+# id为1时，采用md5进行加密；id为5时，采用SHA256进行加密；id为6时，采用SHA512进行加密。
+# $salt 是一个最多16个字符的随机生成的字符串，增加破解难度。$encrypted 就是通过id算法和盐算出来的密文了
+# 命令行或在线perl工具生成密码字符串：perl -e 'print crypt("password",q($1$V4UetPzk)),"\n"';
+# 生成密文$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.
+# sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' package/base-files/files/etc/shadow
+
+
 # 修改默认密码password
 #sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' package/base-files/files/etc/shadow
 sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' package/base-files/files/etc/shadow
+
 # 修改默认IP & 固件名称 & 编译署名 &#添加编译日期标识
 #sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 sed -i "s/hostname='.*'/hostname='JDC'/g" package/base-files/files/bin/config_generate
 sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ Built by lee29')/g" feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
+
 # 修改本地时间格式
 #sed -i 's/os.date()/os.date("%a %Y-%m-%d %H:%M:%S")/g' package/lean/autocore/files/*/index.htm
 
