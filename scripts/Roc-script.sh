@@ -3,7 +3,8 @@
 #修改默认主题
 sed -i "s/luci-theme-bootstrap/luci-theme-argon/g" $(find ./feeds/luci/collections/ -type f -name "Makefile")
 # 修改默认密码password
-#sed -i 's/root:.*/root:$5$sTDoVxujyj8AUGwn$fzTRJUpQWecgcJUs6sGc.yKDgdo/qQfYJc8tBZHBAf7:20299:0:99999:7:::/g' package/base-files/files/etc/shadow
+#sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' package/base-files/files/etc/shadow
+sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' package/base-files/files/etc/shadow
 # 修改默认IP & 固件名称 & 编译署名 &#添加编译日期标识
 #sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 sed -i "s/hostname='.*'/hostname='JDC'/g" package/base-files/files/bin/config_generate
