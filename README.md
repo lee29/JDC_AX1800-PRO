@@ -36,3 +36,6 @@ https://post.smzdm.com/p/a7p2ddel/
 
 ##优秀脚本sh参考
 [优秀脚本sh参考](https://github.com/rmoyulong/Lite_OpenWrt).
+
+##重启后root密码无法登录
+[sshd和dropbear两个服务冲突了]([https://github.com/rmoyulong/Lite_OpenWrt](https://cndaqiang.github.io/2024/01/23/openwrt-rax3000m-nand/)).
