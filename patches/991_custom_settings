@@ -12,8 +12,8 @@ if [ "$current_value" -lt 65535 ]; then
 fi
 
 # 解除dropbear访问限制
-if uci show dropbear | grep -q "DirectInterface"; then
-    uci delete dropbear.main.DirectInterface
-    uci commit dropbear
-    /etc/init.d/dropbear restart
-fi
+#if uci show dropbear | grep -q "DirectInterface"; then
+#    uci delete dropbear.main.DirectInterface
+#    uci commit dropbear
+#    /etc/init.d/dropbear restart
+#fi
