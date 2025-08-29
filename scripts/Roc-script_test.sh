@@ -58,12 +58,12 @@ sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ Built by lee29')/g" feeds/luci/mo
 
 # 移除要替换的包
 rm -rf feeds/luci/applications/luci-app-appfilter
-rm -rf feeds/luci/applications/luci-app-frpc
-rm -rf feeds/luci/applications/luci-app-frps
+#rm -rf feeds/luci/applications/luci-app-frpc
+#rm -rf feeds/luci/applications/luci-app-frps
 rm -rf feeds/packages/net/open-app-filter
 rm -rf feeds/packages/net/adguardhome
 rm -rf feeds/packages/net/ariang
-rm -rf feeds/packages/net/frp
+#rm -rf feeds/packages/net/frp
 rm -rf feeds/packages/lang/golang
 
 
@@ -80,11 +80,11 @@ git clone --depth=1 https://github.com/lee29/xunlei-package package/xunlei
 git clone --depth=1 https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 git clone --depth=1 https://github.com/sbwml/luci-app-openlist2 package/openlist
 git_sparse_clone ariang https://github.com/laipeng668/packages net/ariang
-git_sparse_clone frp https://github.com/laipeng668/packages net/frp
-mv -f package/frp feeds/packages/net/frp
-git_sparse_clone frp https://github.com/laipeng668/luci applications/luci-app-frpc applications/luci-app-frps
-mv -f package/luci-app-frpc feeds/luci/applications/luci-app-frpc
-mv -f package/luci-app-frps feeds/luci/applications/luci-app-frps
+#git_sparse_clone frp https://github.com/laipeng668/packages net/frp
+#mv -f package/frp feeds/packages/net/frp
+#git_sparse_clone frp https://github.com/laipeng668/luci applications/luci-app-frpc applications/luci-app-frps
+#mv -f package/luci-app-frpc feeds/luci/applications/luci-app-frpc
+#mv -f package/luci-app-frps feeds/luci/applications/luci-app-frps
 git_sparse_clone master https://github.com/kenzok8/openwrt-packages adguardhome luci-app-adguardhome
 git_sparse_clone main https://github.com/VIKINGYFY/packages luci-app-wolplus
 git clone --depth=1 https://github.com/gdy666/luci-app-lucky package/luci-app-lucky
