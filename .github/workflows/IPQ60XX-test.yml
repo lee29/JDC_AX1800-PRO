@@ -21,7 +21,6 @@ env:
   DIY_SCRIPT: scripts/diy.sh
   DIY_SCRIPT2: scripts/test.sh
   CLASH_KERNEL: amd64
-  MADS: false
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
   FIRMWARE_TAG: IPQ60XX
