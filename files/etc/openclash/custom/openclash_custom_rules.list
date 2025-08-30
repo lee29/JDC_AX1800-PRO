@@ -5,6 +5,7 @@ rules:
 ##- DOMAIN,google.com,Proxy #匹配域名(交由Proxy代理服务器组)
 ##- DOMAIN-SUFFIX,ad.com,REJECT #匹配域名后缀(拒绝)
 - DOMAIN-SUFFIX,lol.qq.com,DIRECT 
+- DOMAIN-SUFFIX,tencent.com,DIRECT  
 ##- IP-CIDR,127.0.0.0/8,DIRECT #匹配数据目标IP(直连)
 ##- SRC-IP-CIDR,192.168.1.201/32,DIRECT #匹配数据发起IP(直连)
 ##- DST-PORT,80,DIRECT #匹配数据目标端口(直连)
