@@ -27,3 +27,7 @@ config interface 'wan'
 	option device 'wan'
 	option proto 'dhcp'
 
+config device
+	option name 'wan'
+	option ipv6 '0'
+
