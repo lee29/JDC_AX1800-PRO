@@ -25,6 +25,7 @@ config interface 'lan'
 config interface 'wan'
 	option device 'wan'
 	option proto 'dhcp'
+	option delegate '0'
 
 config device
 	option name 'wan'
