@@ -39,7 +39,3 @@ config odhcpd 'odhcpd'
 	option leasetrigger '/usr/sbin/odhcpd-update'
 	option loglevel '4'
 
-config dhcp 'wan6'
-	option interface 'wan6'
-	option ignore '1'
-
