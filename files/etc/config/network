@@ -13,7 +13,6 @@ config device
 	list ports 'lan1'
 	list ports 'lan2'
 	list ports 'lan3'
-	option mtu '1500'
 	option ipv6 '0'
 
 config interface 'lan'
