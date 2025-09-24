@@ -17,7 +17,7 @@ trap 'error_handler' ERR
 
 
 remove_NoPasswordSet() {
-    install -Dm755 "$GITHUB_WORKSPACE/patches/header.ut" "$OPENWRT_PATH/themes/luci-theme-argon/ucode/template/themes/argon/header.ut" 
+    install -Dm755 "$GITHUB_WORKSPACE/patches/header.ut" "$OPENWRT_PATH/package/luci-theme-argon/ucode/template/themes/argon/header.ut" 
 }
 
 
