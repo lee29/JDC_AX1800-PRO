@@ -63,7 +63,7 @@ rm -rf feeds/packages/net/adguardhome
 
 
 #公用函数
-source $GITHUB_WORKSPACE/Scripts/functions.sh
+source $GITHUB_WORKSPACE/scripts/functions.sh
 
 
 #添加迅雷下载
