@@ -16,7 +16,9 @@ trap 'error_handler' ERR
 # BASE_PATH=$(cd $(dirname $0) && pwd)
 
 
-
+remove_NoPasswordSet() {
+    install -Dm755 "$GITHUB_WORKSPACE/patches/header.ut" "$OPENWRT_PATH/themes/luci-theme-argon/ucode/template/themes/argon/header.ut" 
+}
 
 
 add_wifi_default_set() {
@@ -80,6 +82,7 @@ sed -ri \'/check_signature/s@^[^#]@#&@\' /etc/opkg.conf\n" $emortal_def_dir/file
 
 
 main() {
+    remove_NoPasswordSet
     add_wifi_default_set
     custom_settings
     #fix_build_for_openssl
