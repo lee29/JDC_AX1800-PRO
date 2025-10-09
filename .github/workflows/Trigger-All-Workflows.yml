@@ -7,11 +7,11 @@ on:
 
 jobs:
 
-    IPQ60XX-LibWrt:
-      uses: ./.github/workflows/IPQ60XX-LibWrt.yml
+#    IPQ60XX-LibWrt:
+#      uses: ./.github/workflows/IPQ60XX-LibWrt.yml
 
-    IPQ60XX-VIKINGYFY:
-      uses: ./.github/workflows/IPQ60XX-VIKINGYFY.yml
+#    IPQ60XX-VIKINGYFY:
+#      uses: ./.github/workflows/IPQ60XX-VIKINGYFY.yml
 
     IPQ60XX-test:
       uses: ./.github/workflows/IPQ60XX-test.yml
