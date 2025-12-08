@@ -10,5 +10,8 @@ jobs:
     IPQ60XX-LibWrt:
       uses: ./.github/workflows/IPQ60XX-LibWrt.yml
 
+    IPQ60XX-LibWrt-files:
+      uses: ./.github/workflows/IPQ60XX-LibWrt-files.yml
+
     All-Clean:
       uses: ./.github/workflows/All-Clean.yml
