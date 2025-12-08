@@ -108,15 +108,15 @@ jobs:
         chmod +x $DIY_SCRIPT3
         cd $OPENWRT_PATH
         $GITHUB_WORKSPACE/$DIY_SCRIPT
-#        cd $OPENWRT_PATH
-#        $GITHUB_WORKSPACE/$DIY_SCRIPT2
-#        cd $OPENWRT_PATH
-#        $GITHUB_WORKSPACE/$DIY_SCRIPT3
+        cd $OPENWRT_PATH
+        $GITHUB_WORKSPACE/$DIY_SCRIPT2
+        cd $OPENWRT_PATH
+        $GITHUB_WORKSPACE/$DIY_SCRIPT3
 
     - name: 加载自定义文件Load custom config
       run: |
         df -hT $GITHUB_WORKSPACE
-        [ -e $GITHUB_WORKSPACE/files ] && cp -Rf $GITHUB_WORKSPACE/files $OPENWRT_PATH
+#        [ -e $GITHUB_WORKSPACE/files ] && cp -Rf $GITHUB_WORKSPACE/files $OPENWRT_PATH
 
     - name: Download DL Package(下载DL软件包)
       run: |
