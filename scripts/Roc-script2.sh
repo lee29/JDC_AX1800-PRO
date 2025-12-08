@@ -11,6 +11,7 @@ function git_sparse_clone() {
 }
 
 sed -i '$a src-git openwrt-subconverter https://github.com/Dawneng/openwrt-subconverter' feeds.conf.default
+git clone --depth=1 https://github.com/0x2196f3/luci-app-subconverter package/luci-app-subconverter
 #添加迅雷下载
 git clone --depth=1 https://github.com/lee29/xunlei-package package/xunlei
 
