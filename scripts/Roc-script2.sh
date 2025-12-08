@@ -10,7 +10,7 @@ function git_sparse_clone() {
   cd .. && rm -rf $repodir
 }
 
-
+sed -i '$a src-git openwrt-subconverter https://github.com/Dawneng/openwrt-subconverter' feeds.conf.default
 #添加迅雷下载
 git clone --depth=1 https://github.com/lee29/xunlei-package package/xunlei
 
