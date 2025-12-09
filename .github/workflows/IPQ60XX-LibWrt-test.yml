@@ -109,8 +109,6 @@ jobs:
         cd $OPENWRT_PATH
         $GITHUB_WORKSPACE/$DIY_SCRIPT
         cd $OPENWRT_PATH
-#        $GITHUB_WORKSPACE/$DIY_SCRIPT2
-        cd $OPENWRT_PATH
         $GITHUB_WORKSPACE/$DIY_SCRIPT3
 
     - name: 加载自定义文件Load custom config
