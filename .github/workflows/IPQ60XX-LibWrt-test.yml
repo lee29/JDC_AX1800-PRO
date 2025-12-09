@@ -116,7 +116,7 @@ jobs:
     - name: 加载自定义文件Load custom config
       run: |
         df -hT $GITHUB_WORKSPACE
-#        [ -e $GITHUB_WORKSPACE/files ] && cp -Rf $GITHUB_WORKSPACE/files $OPENWRT_PATH
+        [ -e $GITHUB_WORKSPACE/files ] && cp -Rf $GITHUB_WORKSPACE/files $OPENWRT_PATH
 
     - name: Download DL Package(下载DL软件包)
       run: |
