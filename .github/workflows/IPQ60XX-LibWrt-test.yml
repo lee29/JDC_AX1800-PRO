@@ -1,4 +1,4 @@
-name: IPQ60XX-LibWrt-test
+name: IPQ60XX-LibWrt
 
 on:
   workflow_dispatch:
@@ -9,11 +9,9 @@ on:
 env:
   REPO_URL: https://github.com/laipeng668/openwrt-6.x.git
   REPO_BRANCH: k6.12-nss
-  CONFIG_FILE: configs/IPQ60XX-test.config
-  GENERAL_CONFIG_FILE: configs/test.config
+  CONFIG_FILE: configs/IPQ60XX.config
+  GENERAL_CONFIG_FILE: configs/General.config
   DIY_SCRIPT: scripts/Roc-script.sh
-  DIY_SCRIPT2: scripts/Roc-script2.sh
-  DIY_SCRIPT3: scripts/Roc-script3.sh
   CLASH_KERNEL: amd64
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
@@ -104,19 +102,8 @@ jobs:
     - name: Load Custom Configuration(加载自定义配置)
       run: |
         chmod +x $DIY_SCRIPT
-        chmod +x $DIY_SCRIPT2
-        chmod +x $DIY_SCRIPT3
         cd $OPENWRT_PATH
         $GITHUB_WORKSPACE/$DIY_SCRIPT
-        cd $OPENWRT_PATH
-        $GITHUB_WORKSPACE/$DIY_SCRIPT2
-        cd $OPENWRT_PATH
-        $GITHUB_WORKSPACE/$DIY_SCRIPT3
-
-    - name: 加载自定义文件Load custom config
-      run: |
-        df -hT $GITHUB_WORKSPACE
-        [ -e $GITHUB_WORKSPACE/files ] && cp -Rf $GITHUB_WORKSPACE/files $OPENWRT_PATH
 
     - name: Download DL Package(下载DL软件包)
       run: |
@@ -152,7 +139,7 @@ jobs:
         cd $OPENWRT_PATH/bin/targets/*/*
         cp $OPENWRT_PATH/.config ipq60xx.config
         mv config.buildinfo ipq60xx.config.buildinfo
-        mv -f $OPENWRT_PATH/bin/packages/*/*/*.ipk packages
+        mv -f $OPENWRT_PATH/bin/packages/*/*/*.apk packages
         tar -zcf ipq60xx.Packages.tar.gz packages
         rm -rf packages feeds.buildinfo version.buildinfo sha256sums profiles.json
         echo "FIRMWARE_PATH=$PWD" >> $GITHUB_ENV
@@ -176,11 +163,11 @@ jobs:
         body: |
           **This is OpenWrt Firmware for ${{ env.FIRMWARE_TAG }}**
           ### 📒 固件信息
-          - 这是开启全功能NSS的6.12内核固件，默认主题为Aurora；该固件在ImmortalWrt的基础上，添加了额外的软件包cpufreq、ttyd、upnp、wolplus、samba4、autoreboot、frpc、diskman、arpbind、sqm、docker、xunlei、openclash、openlist2，并添加了若干工具，具体详见IPQ60XX.config。
+          - 这是开启全功能NSS的6.12内核固件，默认主题为Aurora；该固件在ImmortalWrt的基础上，添加了额外的软件包cpufreq、ddns、ttyd、upnp、wolplus、samba4、vlmcsd、aria2、autoreboot、uhttpd、wifischedule、frps、frpc、diskman、hd-idle、banip、acme、arpbind、usb-printer、homeproxy、oaf、sqm、wireguard、watchcat、wechatpush、3cat，并添加了若干工具，具体详见IPQ60XX.config。
           - 💻 这是 ${{ env.FIRMWARE_TAG }} 平台使用的 OpenWrt 固件
           - ⚽ 固件源码: ${{ env.REPO_URL }}
           - 💝 源码分支: ${{ env.REPO_BRANCH }}
-          - 🌐 默认地址: **192.168.1.1**
+          - 🌐 默认地址: **192.168.2.1**
           - 🔑 默认密码: none
           ### 🧊 固件版本
           - 固件内核版本：**${{ env.VERSION_KERNEL }}**
