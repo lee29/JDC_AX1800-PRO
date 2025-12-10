@@ -1,4 +1,4 @@
-name: IPQ60XX-LibWrt
+name: IPQ60XX-LibWrt-test-script1&files
 
 on:
   workflow_dispatch:
@@ -12,6 +12,8 @@ env:
   CONFIG_FILE: configs/IPQ60XX-test.config
   GENERAL_CONFIG_FILE: configs/General-test.config
   DIY_SCRIPT: scripts/Roc-script.sh
+  DIY_SCRIPT2: scripts/Roc-script2.sh
+  DIY_SCRIPT3: scripts/Roc-script3.sh
   CLASH_KERNEL: amd64
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
@@ -104,6 +106,11 @@ jobs:
         chmod +x $DIY_SCRIPT
         cd $OPENWRT_PATH
         $GITHUB_WORKSPACE/$DIY_SCRIPT
+
+    - name: 加载自定义文件Load custom config
+      run: |
+        df -hT $GITHUB_WORKSPACE
+        [ -e $GITHUB_WORKSPACE/files ] && cp -Rf $GITHUB_WORKSPACE/files $OPENWRT_PATH
 
     - name: Download DL Package(下载DL软件包)
       run: |
