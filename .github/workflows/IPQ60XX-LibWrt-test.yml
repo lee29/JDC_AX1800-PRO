@@ -11,7 +11,7 @@ env:
   REPO_BRANCH: k6.12-nss
   CONFIG_FILE: configs/IPQ60XX-test.config
   GENERAL_CONFIG_FILE: configs/General-test.config
-  DIY_SCRIPT: scripts/Roc-script-test.sh
+  DIY_SCRIPT: scripts/Roc-script.sh
   CLASH_KERNEL: amd64
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
