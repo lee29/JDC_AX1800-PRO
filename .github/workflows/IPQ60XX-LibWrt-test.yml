@@ -1,4 +1,4 @@
-name: IPQ60XX-LibWrt-test-script1&files
+name: IPQ60XX-LibWrt-test
 
 on:
   workflow_dispatch:
