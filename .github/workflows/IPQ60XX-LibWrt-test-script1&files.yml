@@ -11,9 +11,7 @@ env:
   REPO_BRANCH: k6.12-nss
   CONFIG_FILE: configs/IPQ60XX-test.config
   GENERAL_CONFIG_FILE: configs/General-test.config
-  DIY_SCRIPT: scripts/Roc-script.sh
-  DIY_SCRIPT2: scripts/Roc-script2.sh
-  DIY_SCRIPT3: scripts/Roc-script3.sh
+  DIY_SCRIPT: scripts/Roc-script-test.sh
   CLASH_KERNEL: amd64
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
@@ -38,6 +36,20 @@ jobs:
         echo -e "$(sudo lshw -short -C memory | grep GiB) \n"
         echo "--------------------------硬盘信息--------------------------"
         echo "硬盘数量：$(ls /dev/sd* | grep -v [1-9] | wc -l)" && df -hT
+
+    - name: Maximize Build Space(删除不需要的软件)
+      run: |
+        set -eux
+	sudo rm -rf /usr/share/dotnet
+        sudo rm -rf /usr/local/lib/android
+        sudo rm -rf /opt/ghc
+        sudo rm -rf /opt/hostedtoolcache/CodeQL
+        sudo docker image prune --all --force
+
+    - name: Check Free Space(查看可用容量)
+      run: |
+        echo "Free space:"
+        df -h
 
     - name: Initialization Environment(初始化环境)
       env:
