@@ -11,8 +11,13 @@ env:
   REPO_BRANCH: k6.12-nss
   CONFIG_FILE: configs/IPQ60XX-test.config
   GENERAL_CONFIG_FILE: configs/General-test.config
-  DIY_SCRIPT: scripts/Roc-script-test.sh
-  DIY_SCRIPTest: scripts/Roc-script3.sh
+  DIY_SCRIPT: scripts/Roc-script.sh
+  DIY_2SCRIPT: scripts/diy.sh
+  DIY_3SCRIPT: scripts/xunlei.sh
+  DIY_4SCRIPT: scripts/subconverter.sh
+  DIY_5SCRIPT: scripts/subconverter-config.sh
+  DIY_6SCRIPT: scripts/plugin.sh
+  DIY_7SCRIPT: scripts/openclash.sh
   CLASH_KERNEL: amd64
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
@@ -119,9 +124,39 @@ jobs:
 
     - name: Load Custom Configuration(加载自定义配置2)
       run: |
-        chmod +x $DIY_SCRIPTest
+        chmod +x $DIY_2SCRIPT
         cd $OPENWRT_PATH
-        $GITHUB_WORKSPACE/$DIY_SCRIPTest
+        $GITHUB_WORKSPACE/$DIY_2SCRIPT
+
+    - name: Load Custom Configuration(加载自定义配置3)
+      run: |
+        chmod +x $DIY_3SCRIPT
+        cd $OPENWRT_PATH
+        $GITHUB_WORKSPACE/$DIY_3SCRIPT
+
+    - name: Load Custom Configuration(加载自定义配置4)
+      run: |
+        chmod +x $DIY_4SCRIPT
+        cd $OPENWRT_PATH
+        $GITHUB_WORKSPACE/$DIY_4SCRIPT
+
+    - name: Load Custom Configuration(加载自定义配置5)
+      run: |
+        chmod +x $DIY_5SCRIPT
+        cd $OPENWRT_PATH
+        $GITHUB_WORKSPACE/$DIY_5SCRIPT
+
+    - name: Load Custom Configuration(加载自定义配置6)
+      run: |
+        chmod +x $DIY_6SCRIPT
+        cd $OPENWRT_PATH
+        $GITHUB_WORKSPACE/$DIY_6SCRIPT
+
+    - name: Load Custom Configuration(加载自定义配置7)
+      run: |
+        chmod +x $DIY_7SCRIPT
+        cd $OPENWRT_PATH
+        $GITHUB_WORKSPACE/$DIY_7SCRIPT
 
     - name: 加载自定义文件Load custom config
       run: |
@@ -162,7 +197,7 @@ jobs:
         cd $OPENWRT_PATH/bin/targets/*/*
         cp $OPENWRT_PATH/.config ipq60xx.config
         mv config.buildinfo ipq60xx.config.buildinfo
-        mv -f $OPENWRT_PATH/bin/packages/*/*/*.ipk packages
+        mv -f $OPENWRT_PATH/bin/packages/*/*/*.opk packages
         tar -zcf ipq60xx.Packages.tar.gz packages
         rm -rf packages feeds.buildinfo version.buildinfo sha256sums profiles.json
         echo "FIRMWARE_PATH=$PWD" >> $GITHUB_ENV
