@@ -41,14 +41,21 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
+        echo "--------------------------清理多余空间--------------------------"
         sudo rm -rf /usr/local/lib/android
         sudo rm -rf /opt/ghc
         sudo rm -rf /opt/hostedtoolcache/CodeQL
         sudo docker image prune --all --force
+        echo "--------------------------清理多余空间--------------------------"
         sudo -E apt-get -y update
         sudo -E apt-get -y install $(curl -fsSL ophub.org/ubuntu2404-make-openwrt-depends)
         sudo -E systemctl daemon-reload
         sudo timedatectl set-timezone "$TZ"
+
+    - name: CheckSpace(检查空间)
+      run: |
+        echo "--------------------------检查剩余空间--------------------------"
+        df -h
 
     - name: Checkout(检出代码)
       uses: actions/checkout@main
