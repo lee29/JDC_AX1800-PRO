@@ -73,18 +73,18 @@ chmod +x package/luci-app-athena-led/root/etc/init.d/athena_led package/luci-app
 # 移除 subconverter核心库
 rm -rf feeds/packages/libs/{jpcre2,libcron,quickjspp,rapidjson,toml11}
 rm -rf feeds/packages/net/{sub-web,subconverter}
-git_sparse_clone jpcre2 https://github.com/Dawneng/openwrt-subconverter feeds/packages/libs/jpcre2
-git_sparse_clone libcron https://github.com/Dawneng/openwrt-subconverter feeds/packages/libs/libcron
-git_sparse_clone quickjspp https://github.com/Dawneng/openwrt-subconverter feeds/packages/libs/quickjspp
-git_sparse_clone rapidjson https://github.com/Dawneng/openwrt-subconverter feeds/packages/libs/rapidjson
-git_sparse_clone toml11 https://github.com/Dawneng/openwrt-subconverter feeds/packages/libs/toml11
-git_sparse_clone sub-web https://github.com/Dawneng/openwrt-subconverter feeds/packages/net/sub-web
-git_sparse_clone subconverter https://github.com/Dawneng/openwrt-subconverter feeds/packages/net/subconverter
+git_sparse_clone master https://github.com/Dawneng/openwrt-subconverter jpcre2 feeds/packages/libs/jpcre2
+git_sparse_clone master https://github.com/Dawneng/openwrt-subconverter libcron feeds/packages/libs/libcron
+git_sparse_clone master https://github.com/Dawneng/openwrt-subconverter quickjspp feeds/packages/libs/quickjspp
+git_sparse_clone master https://github.com/Dawneng/openwrt-subconverter rapidjson feeds/packages/libs/rapidjson
+git_sparse_clone master https://github.com/Dawneng/openwrt-subconverter toml11 feeds/packages/libs/toml11
+git_sparse_clone master https://github.com/Dawneng/openwrt-subconverter sub-web feeds/packages/net/sub-web
+git_sparse_clone master https://github.com/Dawneng/openwrt-subconverter subconverter feeds/packages/net/subconverter
 chmod +x feeds/packages/libs/{jpcre2,libcron,quickjspp,rapidjson,toml11}
 chmod +x feeds/packages/net/{sub-web,subconverter}
 ### 添加 luci-app-subconverter 订阅转换界面
-git_sparse_clone luci-app-subconverter https://github.com/0x2196f3/luci-app-subconverter feeds/luci/applications/luci-app-subconverter
-
+git_sparse_clone main https://github.com/0x2196f3/luci-app-subconverter feeds/luci/applications/luci-app-subconverter
+chmod +x feeds/luci/applications/luci-app-subconverter
 
 ### 迅雷
 git clone --depth=1 https://github.com/lee29/xunlei-package package/xunlei
