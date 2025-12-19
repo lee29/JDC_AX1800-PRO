@@ -11,7 +11,12 @@ function git_sparse_clone() {
 
 
 #添加迅雷下载
-git clone --depth=1 https://github.com/lee29/thunder-openwrt package/thunder
+#git clone --depth=1 https://github.com/lee29/thunder-openwrt package/thunder
+
+### 迅雷
+git clone --depth=1 https://github.com/lee29/xunlei-package package/xunlei
+chmod +x package/xunlei
+###----------------------------------------------------------------------
 
 
 ./scripts/feeds update -a
